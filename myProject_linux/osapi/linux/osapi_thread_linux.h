@@ -1,6 +1,15 @@
 #ifndef OSAPI_THREAD_LINUX_H
 #define OSAPI_THREAD_LINUX_H
 
+// Pls don't delete
+// #include "osapi_thread_interface.h"
+// #include <pthread.h>
+// #include <bits/local_lim.h>
+// #include <stdio.h>
+// #include "string.h"
+
+#define SCHED_POLICY    SCHED_FIFO
+
 /** Thread interface implementation for Linux. */
 class Thread : public ThreadInterface
 {
@@ -13,7 +22,21 @@ class Thread : public ThreadInterface
          *  @param[in] name optional thread name
          */
         Thread(int priority, unsigned int stackSize, Joinable joinable, const char* name = "unnamed")
+            : _joinable(joinable), _name(name), _validId(false)
 		{
+            pthread_attr_init(&_attr);
+
+            pthread_attr_setschedpolicy(&_attr, SCHED_POLICY);
+
+            struct sched_param schedPrio =  { .sched_priority = priority };
+            pthread_attr_setschedparam(&_attr, &schedPrio);
+
+            if (stackSize <= PTHREAD_STACK_MIN)
+            {
+                stackSize = PTHREAD_STACK_MIN;
+            }
+            pthread_attr_setstacksize(&_attr, stackSize);
+
 		}
 		
 		/** Virtual destructor required to properly destroy derived class objects. */
@@ -27,15 +50,15 @@ class Thread : public ThreadInterface
 		 */
 		virtual bool run()
         { 
-// 			if (!isRunning())
-// 			{
-// 				_threadHandle = CreateThread(NULL, _stackSize, &threadFunction, this, 0, nullptr);
-// 				if (NULL != _threadHandle)
-// 				{
-// 					setPriority(_priority);
-// 					return true;
-// 				}
-// 			}
+			if (!isRunning())
+			{
+				int retVal = pthread_create(&_threadId, &_attr, &threadFunction, this);
+				if (0 == retVal)
+				{
+                    _validId = true;
+					return true;
+				}
+			}
 			return false;
 		}
 		
@@ -45,10 +68,11 @@ class Thread : public ThreadInterface
 		 */
 		virtual bool isRunning()
         { 
-// 			if (_threadHandle != NULL)
-// 			{
-// 				return true;
-// 			}
+			if (_validId)
+			{
+                // check state
+				return true;
+			}
 			return false; 
 		}	
 
@@ -59,6 +83,7 @@ class Thread : public ThreadInterface
 		 */
 		virtual bool join(unsigned int timeout)
         {
+            delay(timeout);
 // 			if (isJoinable())
 // 			{
 // 				DWORD retVal = WaitForSingleObject(_threadHandle, timeout);
@@ -77,8 +102,7 @@ class Thread : public ThreadInterface
 		 */
 		virtual bool isJoinable()
         {
-// 			return JOINABLE == _joinable;
-            return false;
+            return JOINABLE == _joinable;
 		}
 
 		/** Suspends thread execution.
@@ -118,19 +142,29 @@ class Thread : public ThreadInterface
 		 */
 		virtual	bool setPriority(int priority)
         {
-// 			if (priority < 0)
-// 			{
-// 				return false;
-// 			}
-// 			else
-// 			{
-// 				if (SetThreadPriority(_threadHandle, priority))
-// 				{
-// 					_priority = priority;
-// 					return true;
-// 				}
-// 				return false;
-// 			}
+            int policy = SCHED_POLICY;
+            int minPrio = sched_get_priority_min(policy);
+            int maxPrio = sched_get_priority_max(policy);
+
+			if (priority < minPrio || priority > maxPrio)
+                return false;
+
+            if (isRunning())
+            {
+                struct sched_param schedPrio = { .sched_priority = priority };
+                int s = pthread_setschedparam(_threadId, policy, &schedPrio);
+                if (0 == s)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                struct sched_param schedPrio =  { .sched_priority = priority };
+                pthread_attr_setschedparam(&_attr, &schedPrio);
+                return true;
+            }
+
 			return false;
 		}
 
@@ -139,8 +173,19 @@ class Thread : public ThreadInterface
 		 */
 		virtual	int getPriority()
         {
-// 			return GetThreadPriority(_threadHandle);
-            return 0;
+            struct sched_param schedPrio;
+
+            if (isRunning())
+            {
+                int policy;
+                int s = pthread_getschedparam(_threadId, &policy, &schedPrio);
+            }
+            else
+            {
+                pthread_attr_getschedparam(&_attr, &schedPrio);
+            }
+
+            return schedPrio.sched_priority;
         }
         
 		/** Gets thread name
@@ -148,19 +193,18 @@ class Thread : public ThreadInterface
 		 */
 		virtual const char* getName()
         {
-// 			return _name;
-            return "";
+            return _name;
 		}
 
-// 		static DWORD WINAPI threadFunction(LPVOID args)
-// 		{
-// 			Thread* osapiThreadObject = reinterpret_cast<Thread*>(args);
-// 			if (osapiThreadObject)
-// 			{
-// 				osapiThreadObject->body();
-// 			}
-// 			return 0;
-// 		}
+		static void* threadFunction(void *arg)
+		{
+			Thread* osapiThreadObject = reinterpret_cast<Thread*>(arg);
+			if (osapiThreadObject)
+			{
+				osapiThreadObject->body();
+			}
+            return NULL;
+		}
 	
 	protected:
 		
@@ -169,7 +213,7 @@ class Thread : public ThreadInterface
 		 */
 		virtual void delay(unsigned int time)
         {
-// 			Sleep(time);
+ 			usleep(time*1000);
 		}
 
 		/** Causes the thread to temporarily yield execution in favor of other threads.
@@ -179,11 +223,14 @@ class Thread : public ThreadInterface
 			// TODO
 		}
 	private:
+        pthread_t _threadId;
+        pthread_attr_t _attr;
 // 		HANDLE _threadHandle;
 // 		int _priority;
 // 		unsigned int _stackSize;
-// 		Joinable _joinable;
-// 		const char* _name;
+        Joinable _joinable;
+    	const char* _name;
+        bool _validId;
 };
 
 

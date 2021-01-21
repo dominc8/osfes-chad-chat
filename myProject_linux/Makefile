@@ -1,8 +1,8 @@
 CXX := g++
-CXX_FLAGS := -O0 -g3 -Wall -fmessage-length=0 -Wno-unused-variable
+CXX_FLAGS := -O0 -g3 -Wall -fmessage-length=0 -Wno-unused-variable -pthread
 
 CC := gcc
-C_FLAGS := -O0 -g3 -Wall -fmessage-length=0 -Wno-unused-variable
+C_FLAGS := -O0 -g3 -Wall -fmessage-length=0 -Wno-unused-variable -pthread
 
 C_INCLUDE_DIRS := cunit
 
@@ -28,7 +28,7 @@ CXX_FLAGS += $(addprefix -I,$(CXX_INCLUDE_DIRS))
 C_FLAGS += $(addprefix -I,$(C_INCLUDE_DIRS))
 
 $(BIN) : $(C_OBJ) $(CXX_OBJ)
-	$(CXX) -o $@ $^
+	$(CXX) -lpthread -o $@ $^
 
 -include $(DEP)
 
@@ -40,6 +40,6 @@ $(BIN) : $(C_OBJ) $(CXX_OBJ)
 .PHONY: clean
 
 clean:
-	rm -rf $(C_OBJ) $(CXX_OBJ)
+	rm -rf $(C_OBJ) $(CXX_OBJ) $(BIN)
 
 

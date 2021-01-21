@@ -10,7 +10,8 @@
 
 #ifdef __linux__
 #include "unistd.h"
-#include "pthread.h"
+#include <pthread.h>
+#include <bits/local_lim.h>
 #endif
 
 #ifdef _WIN32
