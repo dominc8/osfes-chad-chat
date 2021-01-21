@@ -5,22 +5,22 @@
 class Mutex : public MutexInterface
 {
 public:
-	Mutex()
+    Mutex()
     {
-	}
+    }
 
-	virtual ~Mutex()
+    virtual ~Mutex()
     {
-	}
+    }
 
-	virtual bool lock(unsigned int timeout)
+    virtual bool lock(unsigned int timeout)
     {
         return false;
-	}
+    }
 
-	virtual void unlock()
+    virtual void unlock()
     {
-	}
+    }
 private:
 
 };

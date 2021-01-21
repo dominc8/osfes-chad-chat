@@ -4,22 +4,22 @@
 class RecursiveMutex : public MutexInterface
 {
 public:
-	RecursiveMutex()
+    RecursiveMutex()
     {
-	}
+    }
 
-	virtual ~RecursiveMutex()
+    virtual ~RecursiveMutex()
     {
-	}
+    }
 
-	virtual bool lock(unsigned int timeout)
+    virtual bool lock(unsigned int timeout)
     {
         return false;
-	}
+    }
 
-	virtual void unlock()
+    virtual void unlock()
     {
-	}
+    }
 private:
 
 };

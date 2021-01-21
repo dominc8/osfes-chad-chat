@@ -11,12 +11,12 @@ void TEST_MortalThread(void);
 
 
 CUNIT_CI_RUN("osapi",
-		CUNIT_CI_TEST(TEST_ThreadCreation),
-		CUNIT_CI_TEST(TEST_ThreadJoin),
-		CUNIT_CI_TEST(TEST_ThreadSuspendResume),
-		CUNIT_CI_TEST(TEST_ThreadPriority),
-		CUNIT_CI_TEST(TEST_ThreadDelay),
-		CUNIT_CI_TEST(TEST_Mutex),
-		CUNIT_CI_TEST(TEST_RecursiveMutex),
-		CUNIT_CI_TEST(TEST_MortalThread)
+        CUNIT_CI_TEST(TEST_ThreadCreation),
+        CUNIT_CI_TEST(TEST_ThreadJoin),
+        CUNIT_CI_TEST(TEST_ThreadSuspendResume),
+        CUNIT_CI_TEST(TEST_ThreadPriority),
+        CUNIT_CI_TEST(TEST_ThreadDelay),
+        CUNIT_CI_TEST(TEST_Mutex),
+        CUNIT_CI_TEST(TEST_RecursiveMutex),
+        CUNIT_CI_TEST(TEST_MortalThread)
 );
