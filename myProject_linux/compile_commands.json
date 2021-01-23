@@ -1,0 +1,412 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-c",
+      "cunit/Sources/Automated/Automated.c",
+      "-o",
+      "cunit/Sources/Automated/Automated.c.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Automated/Automated.c",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Automated/Automated.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-c",
+      "cunit/Sources/Basic/Basic.c",
+      "-o",
+      "cunit/Sources/Basic/Basic.c.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Basic/Basic.c",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Basic/Basic.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-c",
+      "cunit/Sources/CI/CUnitCI.c",
+      "-o",
+      "cunit/Sources/CI/CUnitCI.c.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/CI/CUnitCI.c",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/CI/CUnitCI.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-c",
+      "cunit/Sources/Console/Console.c",
+      "-o",
+      "cunit/Sources/Console/Console.c.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Console/Console.c",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Console/Console.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-c",
+      "cunit/Sources/Framework/CUError.c",
+      "-o",
+      "cunit/Sources/Framework/CUError.c.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Framework/CUError.c",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Framework/CUError.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-c",
+      "cunit/Sources/Framework/MessageHandlers.c",
+      "-o",
+      "cunit/Sources/Framework/MessageHandlers.c.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Framework/MessageHandlers.c",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Framework/MessageHandlers.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-c",
+      "cunit/Sources/Framework/MyMem.c",
+      "-o",
+      "cunit/Sources/Framework/MyMem.c.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Framework/MyMem.c",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Framework/MyMem.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-c",
+      "cunit/Sources/Framework/TestDB.c",
+      "-o",
+      "cunit/Sources/Framework/TestDB.c.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Framework/TestDB.c",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Framework/TestDB.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-c",
+      "cunit/Sources/Framework/TestRun.c",
+      "-o",
+      "cunit/Sources/Framework/TestRun.c.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Framework/TestRun.c",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Framework/TestRun.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-c",
+      "cunit/Sources/Framework/Util.c",
+      "-o",
+      "cunit/Sources/Framework/Util.c.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Framework/Util.c",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/cunit/Sources/Framework/Util.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-Iosapi",
+      "-Iosapi/linux",
+      "-Iosapi_test",
+      "-c",
+      "osapi_test/main.cpp",
+      "-o",
+      "osapi_test/main.cpp.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/main.cpp",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/main.cpp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-Iosapi",
+      "-Iosapi/linux",
+      "-Iosapi_test",
+      "-c",
+      "osapi_test/test_01_thread_creation.cpp",
+      "-o",
+      "osapi_test/test_01_thread_creation.cpp.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_01_thread_creation.cpp",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_01_thread_creation.cpp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-Iosapi",
+      "-Iosapi/linux",
+      "-Iosapi_test",
+      "-c",
+      "osapi_test/test_02_thread_join.cpp",
+      "-o",
+      "osapi_test/test_02_thread_join.cpp.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_02_thread_join.cpp",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_02_thread_join.cpp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-Iosapi",
+      "-Iosapi/linux",
+      "-Iosapi_test",
+      "-c",
+      "osapi_test/test_03_thread_suspend_resume.cpp",
+      "-o",
+      "osapi_test/test_03_thread_suspend_resume.cpp.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_03_thread_suspend_resume.cpp",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_03_thread_suspend_resume.cpp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-Iosapi",
+      "-Iosapi/linux",
+      "-Iosapi_test",
+      "-c",
+      "osapi_test/test_04_thread_priority.cpp",
+      "-o",
+      "osapi_test/test_04_thread_priority.cpp.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_04_thread_priority.cpp",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_04_thread_priority.cpp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-Iosapi",
+      "-Iosapi/linux",
+      "-Iosapi_test",
+      "-c",
+      "osapi_test/test_05_thread_delay.cpp",
+      "-o",
+      "osapi_test/test_05_thread_delay.cpp.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_05_thread_delay.cpp",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_05_thread_delay.cpp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-Iosapi",
+      "-Iosapi/linux",
+      "-Iosapi_test",
+      "-c",
+      "osapi_test/test_06_mutex.cpp",
+      "-o",
+      "osapi_test/test_06_mutex.cpp.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_06_mutex.cpp",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_06_mutex.cpp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-Iosapi",
+      "-Iosapi/linux",
+      "-Iosapi_test",
+      "-c",
+      "osapi_test/test_07_recursive_mutex.cpp",
+      "-o",
+      "osapi_test/test_07_recursive_mutex.cpp.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_07_recursive_mutex.cpp",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_07_recursive_mutex.cpp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-Iosapi",
+      "-Iosapi/linux",
+      "-Iosapi_test",
+      "-c",
+      "osapi_test/test_08_mortal_thread.cpp",
+      "-o",
+      "osapi_test/test_08_mortal_thread.cpp.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_08_mortal_thread.cpp",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi_test/test_08_mortal_thread.cpp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-O0",
+      "-g3",
+      "-Wall",
+      "-fmessage-length=0",
+      "-Wno-unused-variable",
+      "-pthread",
+      "-Icunit",
+      "-Iosapi",
+      "-Iosapi/linux",
+      "-Iosapi_test",
+      "-c",
+      "osapi/linux/osapi_linux.cpp",
+      "-o",
+      "osapi/linux/osapi_linux.cpp.o"
+    ],
+    "directory": "/home/dominik/repos/osfes-chad-chat/myProject_linux",
+    "file": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi/linux/osapi_linux.cpp",
+    "output": "/home/dominik/repos/osfes-chad-chat/myProject_linux/osapi/linux/osapi_linux.cpp.o"
+  }
+]

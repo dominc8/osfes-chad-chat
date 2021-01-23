@@ -83,16 +83,33 @@ class Thread : public ThreadInterface
          */
         virtual bool join(unsigned int timeout)
         {
-            delay(timeout);
-//             if (isJoinable())
-//             {
-//                 DWORD retVal = WaitForSingleObject(_threadHandle, timeout);
-//                 if (WAIT_OBJECT_0 == retVal)
-//                 {
-//                     return true;
-//                 }
-// 
-//             }
+            if (isJoinable())
+            {
+
+                struct timespec ts;
+                clock_gettime(CLOCK_REALTIME, &ts);
+
+                unsigned int timeout_s = timeout / 1000;
+                ts.tv_sec += timeout_s;
+                timeout -= timeout_s;
+
+                long timeout_ns = timeout*1000000;
+
+                if (ts.tv_nsec + timeout_ns > 1000000000)
+                {
+                    ++ts.tv_sec;
+                    timeout_ns -= 1000000000;
+                }
+
+                ts.tv_nsec = ts.tv_nsec + timeout_ns;
+
+                int join_status = pthread_timedjoin_np(_threadId, NULL, &ts);
+
+                if (0 == join_status)
+                {
+                    return true;
+                }
+            }
             return false;
         }
 
