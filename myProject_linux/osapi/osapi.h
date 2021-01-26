@@ -36,6 +36,7 @@ namespace osapi {
 
 #ifdef __linux__
 // include linux implementation
+void calcDelayedTimespec(struct timespec *ts, unsigned int milliseconds);
 #include "linux/osapi_mutex_linux.h"
 #include "linux/osapi_recursive_mutex_linux.h"
 #include "linux/osapi_thread_linux.h"
