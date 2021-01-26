@@ -27,6 +27,9 @@ DEP += $(C_OBJ:%.o=%.d)
 CXX_FLAGS += $(addprefix -I,$(CXX_INCLUDE_DIRS))
 C_FLAGS += $(addprefix -I,$(C_INCLUDE_DIRS))
 
+test: $(BIN)
+	sudo ./$(BIN)
+
 $(BIN) : $(C_OBJ) $(CXX_OBJ)
 	$(CXX) -lpthread -o $@ $^
 
