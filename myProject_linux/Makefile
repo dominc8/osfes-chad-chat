@@ -31,7 +31,7 @@ test: $(BIN)
 	sudo ./$(BIN)
 
 $(BIN) : $(C_OBJ) $(CXX_OBJ)
-	$(CXX) -lpthread -o $@ $^
+	$(CXX) -pthread -o $@ $^
 
 -include $(DEP)
 
