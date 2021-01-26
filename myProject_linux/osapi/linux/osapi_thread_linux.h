@@ -6,6 +6,8 @@
 // #include <pthread.h>
 // #include <bits/local_lim.h>
 // #include <stdio.h>
+// #include <unistd.h>
+// #include <signal.h>
 // #include "string.h"
 
 #define SCHED_POLICY    SCHED_FIFO
@@ -22,7 +24,7 @@ class Thread : public ThreadInterface
          *  @param[in] name optional thread name
          */
         Thread(int priority, unsigned int stackSize, Joinable joinable, const char* name = "unnamed")
-            : _joinable(joinable), _name(name), _validId(false)
+            : _joinable(joinable), _name(name), _validId(false), _errSuspendResume(false)
         {
             pthread_attr_init(&_attr);
 
@@ -114,12 +116,15 @@ class Thread : public ThreadInterface
          */
         virtual bool suspend()
         {
-//             DWORD retVal = SuspendThread(_threadHandle);
-//             if (static_cast<DWORD>(-1) == retVal)
-//             {
-//                 return false;
-//             }
-//             return true;
+            if (false == _errSuspendResume)
+            {
+                union sigval sigData;
+                sigData.sival_ptr = this;
+                if (0 == pthread_sigqueue(_threadId, SIGUSR1, sigData))
+                {
+                    return true;
+                }
+            }
             return false;
         }
 
@@ -129,12 +134,13 @@ class Thread : public ThreadInterface
          */
         virtual bool resume()
         {
-//             DWORD retVal = ResumeThread(_threadHandle);
-//             if (static_cast<DWORD>(-1) == retVal)
-//             {
-//                 return false;
-//             }
-//             return true;
+            if (false == _errSuspendResume)
+            {
+                pthread_mutex_lock(&_condMutex);
+                pthread_cond_signal(&_cond);
+                pthread_mutex_unlock(&_condMutex);
+                return true;
+            }
             return false;
         }
 
@@ -143,7 +149,7 @@ class Thread : public ThreadInterface
          *  @retval true if the priority for the thread was set successfully
          *  @retval false if the priority for the thread was not set successfully for some reason
          */
-        virtual    bool setPriority(int priority)
+        virtual bool setPriority(int priority)
         {
             int policy = SCHED_POLICY;
             int minPrio = sched_get_priority_min(policy);
@@ -174,7 +180,7 @@ class Thread : public ThreadInterface
         /** Gets the thread priority
          *  @return current thread priority
          */
-        virtual    int getPriority()
+        virtual int getPriority()
         {
             struct sched_param schedPrio;
 
@@ -204,9 +210,29 @@ class Thread : public ThreadInterface
             Thread* osapiThreadObject = reinterpret_cast<Thread*>(arg);
             if (osapiThreadObject)
             {
+                struct sigaction sa;
+                sigemptyset(&sa.sa_mask);
+                sa.sa_sigaction = &suspendHandler;
+                sa.sa_flags = SA_SIGINFO;
+
+                if (0 != sigaction(SIGUSR1, &sa, NULL))
+                {
+                    osapiThreadObject->_errSuspendResume = true;
+                }
                 osapiThreadObject->body();
             }
             return NULL;
+        }
+
+        static void suspendHandler(int signo, siginfo_t *si, void *ucontext)
+        {
+            Thread *osapiThreadObject = reinterpret_cast<Thread*>(si->si_value.sival_ptr);
+            if (osapiThreadObject)
+            {
+                pthread_mutex_lock(&(osapiThreadObject->_condMutex));
+                pthread_cond_wait(&(osapiThreadObject->_cond), &(osapiThreadObject->_condMutex));
+                pthread_mutex_unlock(&(osapiThreadObject->_condMutex));
+            }
         }
     
     protected:
@@ -228,12 +254,12 @@ class Thread : public ThreadInterface
     private:
         pthread_t _threadId;
         pthread_attr_t _attr;
-//         HANDLE _threadHandle;
-//         int _priority;
-//         unsigned int _stackSize;
+        pthread_mutex_t _condMutex = PTHREAD_MUTEX_INITIALIZER;
+        pthread_cond_t _cond = PTHREAD_COND_INITIALIZER;
         Joinable _joinable;
         const char* _name;
         bool _validId;
+        bool _errSuspendResume;
 };
 
 
