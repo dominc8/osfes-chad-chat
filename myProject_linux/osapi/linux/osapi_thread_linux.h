@@ -70,12 +70,7 @@ class Thread : public ThreadInterface
          */
         virtual bool isRunning()
         { 
-            if (_validId)
-            {
-                // check state
-                return true;
-            }
-            return false; 
+            return _validId;
         }    
 
         /** Waits for the thread to finish executing, with a given timeout.
@@ -220,6 +215,7 @@ class Thread : public ThreadInterface
                     osapiThreadObject->_errSuspendResume = true;
                 }
                 osapiThreadObject->body();
+                osapiThreadObject->_validId = false;
             }
             return NULL;
         }
