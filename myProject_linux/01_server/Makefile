@@ -44,6 +44,7 @@ $(BIN_SERVER) : $(C_OBJ) $(CXX_OBJ)
 	@echo "Compiling c++..."
 	$(CC) $(C_FLAGS) -c $< -o $@
 
+
 .PHONY: clean
 
 clean:

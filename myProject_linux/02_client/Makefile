@@ -29,7 +29,7 @@ C_FLAGS += $(addprefix -I,$(C_INCLUDE_DIRS))
 
 execte_server: $(BIN_SERVER)
 	@echo "Run program..."
-	sudo ./$(BIN_SERVER) 127.0.0.1 20006
+	sudo ./$(BIN_SERVER) 127.0.0.1 1005
 
 $(BIN_SERVER) : $(C_OBJ) $(CXX_OBJ)
 	
