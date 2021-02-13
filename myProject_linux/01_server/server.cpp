@@ -1,4 +1,3 @@
-/* The port number is passed as an argument */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,7 +6,6 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include "CUnit/CUnitCI.h"
 #include "osapi.h"
 #include <climits>
 
@@ -211,3 +209,4 @@ int main(int argc, char *argv[])
 
     return 0; 
 }
+
