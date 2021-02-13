@@ -1,0 +1,4 @@
+uart_api.c:11:6:UartInit	8	static
+uart_api.c:15:6:UartWriteCommand	16	static
+uart_api.c:19:6:UartReadCommand	16	static
+uart_api.c:34:6:HAL_UART_RxCpltCallback	16	static
