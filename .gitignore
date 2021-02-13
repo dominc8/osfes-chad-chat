@@ -3,4 +3,5 @@
 myProject_linux
 !myProject_linux/
 **/server_app
+**/client_app
 

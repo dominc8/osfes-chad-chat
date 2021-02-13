@@ -6,7 +6,6 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h>
-#include "CUnit/CUnitCI.h"
 #include "osapi.h"
 #include <climits>
 
