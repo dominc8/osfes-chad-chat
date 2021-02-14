@@ -2,7 +2,7 @@ CXX := g++
 CXX_FLAGS := -O0 -g3 -Wall -fmessage-length=0 -Wno-unused-variable -pthread
 
 CXX_INCLUDE_DIRS += ../osapi
-CXX_INCLUDE_DIRS += osapi/linux
+CXX_INCLUDE_DIRS += ../osapi/linux
 
 CXX_SOURCES := $(wildcard ../osapi/linux/*.cpp)
 CXX_SOURCES += $(wildcard ./*.cpp)
