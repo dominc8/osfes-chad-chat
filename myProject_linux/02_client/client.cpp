@@ -28,7 +28,6 @@ public:
 private:
     int n; 
     char buffer[256];
-    char line[1024];
     int sockfd;
     virtual void body() {
         while(1){
@@ -98,7 +97,7 @@ public:
 
 private:
     char buffer[256];
-    int sockfd, portno, n;
+    int sockfd, portno;
     struct sockaddr_in serv_addr;
     struct hostent *server;
     ReadClientThread read;

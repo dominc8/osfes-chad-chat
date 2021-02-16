@@ -157,12 +157,11 @@ public:
         close(sockfd);
     }
 private:
-    int sockfd, newsockfd; 
+    int sockfd; 
     int portno;
     socklen_t clilen;
     char buffer[256];
     struct sockaddr_in serv_addr, cli_addr;
-    int n;
     ClientThread client[5];
     int num_client;
     AcceptThread accept;
@@ -176,16 +175,6 @@ private:
                 client[num_client].run();
                 ++num_client;
             }
-
-            //check disconnect clients
-            /*
-            for(int i=0;i<num_client;++i){
-                if(!client[i].isRunning()){
-                    --num_client;
-
-                }
-            }
-            */
 
             //send to all clients
             for(int i=0;i<num_client;++i){
