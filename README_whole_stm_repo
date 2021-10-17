@@ -1,0 +1,5 @@
+Kompletny projekt na STM (whole_stm_repo.zip) to zmodyfikowany przykład od ST, 
+więc struktura tego projektu nie została zmieniona.
+Projekt nazywa sie LwIP_HTTP_Server_Socket_RTOS i po rozpakowaniu i zaimportowaniu 
+projektu do STM32CUBEIDE powinien poprawnie znaleźć wszystkie pliki i się zbudować. 
+Ważniejsze pliki nadal są w archiwum ssk_projekt_lwip.zip.
